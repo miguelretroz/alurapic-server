@@ -13,4 +13,12 @@ export class UserService {
 
     return userData;
   }
+
+  public getByName(username: string): IUser {
+    const user = this.users.find(({ name }) =>
+      name?.toUpperCase()?.includes(username?.toUpperCase()),
+    );
+
+    return user;
+  }
 }
