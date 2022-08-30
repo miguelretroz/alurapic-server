@@ -1,8 +1,8 @@
-export interface IUser {
+export class User {
   id: number;
   name: string;
   email: string;
-  senha: string;
+  password: string;
   fullName: string;
   registerAt: Date;
 }
