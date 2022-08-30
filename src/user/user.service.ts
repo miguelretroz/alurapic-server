@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { IUser } from './interfaces/user.interface';
+import { User } from './user.entity';
 
 @Injectable()
 export class UserService {
-  private users: IUser[] = [];
+  private users: User[] = [];
 
-  public create(userData: IUser): IUser {
+  public create(userData: User): User {
     userData.id = this.users.length + 1;
     userData.registerAt = new Date();
 
@@ -14,7 +14,7 @@ export class UserService {
     return userData;
   }
 
-  public getByName(username: string): IUser {
+  public getByName(username: string): User {
     const user = this.users.find(({ name }) =>
       name?.toUpperCase()?.includes(username?.toUpperCase()),
     );
